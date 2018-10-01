@@ -10,19 +10,27 @@ namespace TestModel
         [TestMethod]
         public void Addition()
         {
-            Operation op = new Operation();
-            op.X1 = 2;
-            op.X2 = 3;
-            Assert.AreEqual(5.0, op.Addition());
-            
+            StringManager stringManager = new StringManager();
+            stringManager.AddDigitToOperand("1");
+            Assert.AreEqual("1", stringManager.FirstOperand.ToString());
+            stringManager.AddDigitToOperand("5");
+            Assert.AreEqual("15", stringManager.FirstOperand.ToString());
+
+            stringManager.ActionOperator = "+";
+
+            stringManager.AddDigitToOperand("5");
+            Assert.AreEqual("5", stringManager.SecondOperand.ToString());
+
+            stringManager.Execute();
+            Assert.AreEqual("20", stringManager.Result);
         }
         [TestMethod]
         public void Substraction()
         {
-            Operation op = new Operation();
-            op.X1 = 2;
-            op.X2 = 3;
-            Assert.AreEqual(-1.0, op.Substraction());
+            //Operation op = new Operation();
+            //op.X1 = 2;
+            //op.X2 = 3;
+            //Assert.AreEqual(-1.0, op.Substraction());
 
         }
 

@@ -31,17 +31,21 @@ namespace Calculator
             Button btn8 = FindViewById<Button>(Resource.Id.button8);
             Button btn9 = FindViewById<Button>(Resource.Id.button9);
             Button btnClr = FindViewById<Button>(Resource.Id.buttonClear);
-            btn1.Click += AddDigitalByNumeralBtn;
-            btn2.Click += AddDigitalByNumeralBtn;
-            btn3.Click += AddDigitalByNumeralBtn;
-            btn4.Click += AddDigitalByNumeralBtn;
-            btn5.Click += AddDigitalByNumeralBtn;
-            btn6.Click += AddDigitalByNumeralBtn;
-            btn7.Click += AddDigitalByNumeralBtn;
-            btn8.Click += AddDigitalByNumeralBtn;
-            btn9.Click += AddDigitalByNumeralBtn;
+            Button btnAdd = FindViewById<Button>(Resource.Id.buttonAdd);
+
+            btn1.Click += AddDigitByNumeralBtn;
+            btn2.Click += AddDigitByNumeralBtn;
+            btn3.Click += AddDigitByNumeralBtn;
+            btn4.Click += AddDigitByNumeralBtn;
+            btn5.Click += AddDigitByNumeralBtn;
+            btn6.Click += AddDigitByNumeralBtn;
+            btn7.Click += AddDigitByNumeralBtn;
+            btn8.Click += AddDigitByNumeralBtn;
+            btn9.Click += AddDigitByNumeralBtn;
             btnClr.Click += BtnClr_Click;
-            
+            btnAdd.Click += ChangeOperandAndClearDisplay;
+
+
         }
 
         private void BtnClr_Click(object sender, System.EventArgs e)
@@ -49,11 +53,18 @@ namespace Calculator
             disp.Text = "0";
         }
 
-        private void AddDigitalByNumeralBtn(object sender, System.EventArgs e)
+        private void AddDigitByNumeralBtn(object sender, System.EventArgs e)
         {
             Button btn = (Button)sender;
             obslugaStringow.AddDigitToOperand(btn.Text);
             disp.Text += btn.Text;
+        }
+
+        private void ChangeOperandAndClearDisplay(object sender, System.EventArgs e)
+        {
+            disp.Text = null;
+            Button btn = (Button)sender;
+            obslugaStringow.ActionOperator = btn.Text;
         }
     }
 }

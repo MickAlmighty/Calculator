@@ -8,19 +8,18 @@ namespace CalculatorLogic
     {
         private StringBuilder firstOperand;
         private StringBuilder secondOperand;
-        private StringBuilder actionOperator;
-        private StringBuilder equalSign;
-        private StringBuilder result;
+        private string actionOperator;
+        private StringBuilder equalSign;        
         private bool isOperandChosen = false;
         private Operation operacja;
 
+        public string Result { get; set; }
         public StringManager()
         {
             firstOperand = new StringBuilder("0");
             secondOperand = new StringBuilder("0");
-            actionOperator = new StringBuilder();
             equalSign = new StringBuilder();
-            result = new StringBuilder();
+            operacja = new Operation();
         }
 
         public StringBuilder FirstOperand
@@ -45,16 +44,16 @@ namespace CalculatorLogic
                 secondOperand.Append(value);
             }
         }
-        public StringBuilder ActionOperator
+        public String ActionOperator
         {
             get
             {
                 return actionOperator;
             }
-            private set
+            set
             {
-                actionOperator.Clear();
-                actionOperator.Append(value);
+                //actionOperator.Clear();
+                actionOperator = value;
                 isOperandChosen = true;
             }
         }
@@ -79,19 +78,16 @@ namespace CalculatorLogic
             if (operandString.Equals("0") && digit != ".")
             {
                 operandString = digit;
-                Console.WriteLine($"Pierwsza cyfra to: {digit}");
             }
             else
             {
                 if (digit == "." && operandString.Contains(".") == false)
                 {
                     operandString += ".";
-                    Console.WriteLine("Wstawiam kropkę");
                 }
                 else if(digit != ".")
                 {
                     operandString += digit;
-                    Console.WriteLine($"Kolejna cyfra to {digit}");
                 }
             }
             
@@ -151,10 +147,41 @@ namespace CalculatorLogic
             operand.Clear();
             operand.Append(operandString);
         }
-        public void Execute(Double res)
+        public void Execute()
         {
-            //equalSign = "=";
-            //result = res.ToString();
+            double firstOperand = Double.Parse(FirstOperand.ToString());
+            double secondOperand = Double.Parse(SecondOperand.ToString());
+            double result = 0;
+            switch (actionOperator)
+            {
+                case "+":
+                    {
+                        result = operacja.Addition(firstOperand, secondOperand);
+                        break;
+                    }
+
+                case "-":
+                    {
+                        result = operacja.Substraction(firstOperand, secondOperand);
+                        break;
+                    }
+                case "/":
+                    {
+                        result = operacja.Division(firstOperand, secondOperand);
+                        break;
+                    }
+                case "*":
+                    {
+                        result = operacja.Multiplication(firstOperand, secondOperand);
+                        break;
+                    }
+                default:
+                    {
+                        Result = "0";
+                        break;
+                    }
+            }
+            Result = result.ToString();
         }
     }
 }

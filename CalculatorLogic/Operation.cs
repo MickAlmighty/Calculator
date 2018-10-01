@@ -4,29 +4,22 @@ namespace CalculatorLogic
 {
     public class Operation
     {
-        public Double X1 { get; set; }
-        public Double X2 { get; set; }
-        public Operation()
-        {
-            X1 = 0;
-            X2 = 0;
-        }
 
-        public Double Addition()
+        public Double Addition(double x1, double x2)
         {
-            return X1 + X2;
+            return x1 + x2;
         } 
-        public Double Substraction()
+        public Double Substraction(double x1, double x2)
         {
-            return X1 - X2;
+            return x1 - x2;
         }
-        public Double Division()
+        public Double Division(double x1, double x2)
         {
-            return X1 / X2;
+            return x1 / x2;
         }
-        public Double Multiplication()
+        public Double Multiplication(double x1, double x2)
         {
-            return X1 / X2;
+            return x1 * x2;
         }
     }
 }
