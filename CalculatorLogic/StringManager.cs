@@ -9,7 +9,7 @@ namespace CalculatorLogic
         private StringBuilder firstOperand;
         private StringBuilder secondOperand;
         private string actionOperator;
-        private StringBuilder equalSign;        
+        private StringBuilder equalSign;
         private bool isOperandChosen = false;
         private Operation operacja;
 
@@ -28,7 +28,7 @@ namespace CalculatorLogic
             {
                 return firstOperand;
             }
-            private set
+            set
             {
                 firstOperand.Append(value);
             }
@@ -39,7 +39,7 @@ namespace CalculatorLogic
             {
                 return secondOperand;
             }
-            private set
+            set
             {
                 secondOperand.Append(value);
             }
@@ -85,19 +85,19 @@ namespace CalculatorLogic
                 {
                     operandString += ".";
                 }
-                else if(digit != ".")
+                else if (digit != ".")
                 {
                     operandString += digit;
                 }
             }
-            
+
             operand.Clear();
             operand.Append(operandString);
         }
         public void ChangeSignOfOperand()
         {
             StringBuilder operand = new StringBuilder();
-            
+
             if (isOperandChosen == false)
             {
                 operand = FirstOperand;
@@ -148,9 +148,9 @@ namespace CalculatorLogic
             operand.Append(operandString);
         }
         public void Execute()
-        {
-            double firstOperand = Double.Parse(FirstOperand.ToString());
-            double secondOperand = Double.Parse(SecondOperand.ToString());
+        {   
+            double firstOperand = double.Parse(PrepareToParse(FirstOperand.ToString()));
+            double secondOperand = double.Parse(PrepareToParse(SecondOperand.ToString()));
             double result = 0;
             switch (actionOperator)
             {
@@ -159,7 +159,6 @@ namespace CalculatorLogic
                         result = operacja.Addition(firstOperand, secondOperand);
                         break;
                     }
-
                 case "-":
                     {
                         result = operacja.Substraction(firstOperand, secondOperand);
@@ -175,13 +174,46 @@ namespace CalculatorLogic
                         result = operacja.Multiplication(firstOperand, secondOperand);
                         break;
                     }
+                case "%":
+                    {
+                        result = operacja.Percentage(firstOperand, secondOperand);
+                        break;
+                    }
                 default:
                     {
                         Result = "0";
                         break;
                     }
             }
-            Result = result.ToString();
+            Result = result.ToString().Replace(',', '.');
+            ClearOperands();
         }
-    }
+        public string PrepareToParse(string toParse)
+        {
+
+            if (toParse.Contains("."))
+            {
+                toParse.Replace('.', ',');
+                return toParse;
+            }
+            else return toParse;
+        }
+        private void ClearOperands()
+        {
+            FirstOperand = new StringBuilder("0");
+            SecondOperand = new StringBuilder("0");
+        }
+
+        public string DisplayOperand()
+        {
+            if (isOperandChosen == false)
+            {
+                return FirstOperand.ToString();
+            }
+            else
+            {
+                return SecondOperand.ToString();
+            }
+        }
+    }   
 }

@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using Android.Support.Design.Widget;
 using CalculatorLogic;
+using System;
 
 namespace Calculator
 {
@@ -30,8 +31,10 @@ namespace Calculator
             Button btn7 = FindViewById<Button>(Resource.Id.button7);
             Button btn8 = FindViewById<Button>(Resource.Id.button8);
             Button btn9 = FindViewById<Button>(Resource.Id.button9);
+            Button btnDot = FindViewById<Button>(Resource.Id.buttonDot);
             Button btnClr = FindViewById<Button>(Resource.Id.buttonClear);
             Button btnAdd = FindViewById<Button>(Resource.Id.buttonAdd);
+            Button btnExec = FindViewById<Button>(Resource.Id.buttonEqualSign);
 
             btn1.Click += AddDigitByNumeralBtn;
             btn2.Click += AddDigitByNumeralBtn;
@@ -42,14 +45,23 @@ namespace Calculator
             btn7.Click += AddDigitByNumeralBtn;
             btn8.Click += AddDigitByNumeralBtn;
             btn9.Click += AddDigitByNumeralBtn;
+            btnDot.Click += AddDigitByNumeralBtn;
             btnClr.Click += BtnClr_Click;
-            btnAdd.Click += ChangeOperandAndClearDisplay;
+            btnAdd.Click += SwitchOperation;
+            btnExec.Click += Execute;
 
 
         }
 
+        private void Execute(object sender, EventArgs e)
+        {
+            obslugaStringow.Execute();
+            disp.Text = obslugaStringow.Result;
+        }
+
         private void BtnClr_Click(object sender, System.EventArgs e)
         {
+            obslugaStringow = new StringManager();
             disp.Text = "0";
         }
 
@@ -57,12 +69,12 @@ namespace Calculator
         {
             Button btn = (Button)sender;
             obslugaStringow.AddDigitToOperand(btn.Text);
-            disp.Text += btn.Text;
+            disp.Text = obslugaStringow.DisplayOperand();
         }
 
-        private void ChangeOperandAndClearDisplay(object sender, System.EventArgs e)
+        private void SwitchOperation(object sender, System.EventArgs e)
         {
-            disp.Text = null;
+            disp.Text = "0";
             Button btn = (Button)sender;
             obslugaStringow.ActionOperator = btn.Text;
         }

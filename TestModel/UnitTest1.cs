@@ -12,9 +12,12 @@ namespace TestModel
         {
             StringManager stringManager = new StringManager();
             stringManager.AddDigitToOperand("1");
-            Assert.AreEqual("1", stringManager.FirstOperand.ToString());
             stringManager.AddDigitToOperand("5");
-            Assert.AreEqual("15", stringManager.FirstOperand.ToString());
+            stringManager.AddDigitToOperand(".");
+            stringManager.AddDigitToOperand("5");
+            stringManager.ChangeSignOfOperand();
+            //stringManager.AddDigitToOperand("5");
+            Assert.AreEqual("-15.5", stringManager.FirstOperand.ToString());
 
             stringManager.ActionOperator = "+";
 
@@ -22,7 +25,8 @@ namespace TestModel
             Assert.AreEqual("5", stringManager.SecondOperand.ToString());
 
             stringManager.Execute();
-            Assert.AreEqual("20", stringManager.Result);
+            Assert.AreEqual("-10.5", stringManager.Result);
+            
         }
         [TestMethod]
         public void Substraction()
