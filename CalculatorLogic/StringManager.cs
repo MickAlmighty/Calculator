@@ -115,7 +115,11 @@ namespace CalculatorLogic
             {
                 string savedOperand = operand.ToString();
                 operand.Clear();
-                operand.Append("-" + savedOperand);
+                if (savedOperand != "0")
+                {
+                    operand.Append("-" + savedOperand);
+                }
+                else operand.Append(savedOperand);
             }
         }
 
@@ -148,9 +152,18 @@ namespace CalculatorLogic
             operand.Append(operandString);
         }
         public void Execute()
-        {   
-            double firstOperand = double.Parse(PrepareToParse(FirstOperand.ToString()));
-            double secondOperand = double.Parse(PrepareToParse(SecondOperand.ToString()));
+        {
+            double firstOperand = 0;
+            double secondOperand = 0;
+            try
+            { 
+                firstOperand = double.Parse(PrepareToParse(FirstOperand.ToString()));
+                secondOperand = double.Parse(PrepareToParse(SecondOperand.ToString()));
+            }
+            catch (System.FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             double result = 0;
             switch (actionOperator)
             {
@@ -169,7 +182,7 @@ namespace CalculatorLogic
                         result = operacja.Division(firstOperand, secondOperand);
                         break;
                     }
-                case "*":
+                case "x":
                     {
                         result = operacja.Multiplication(firstOperand, secondOperand);
                         break;
@@ -193,7 +206,7 @@ namespace CalculatorLogic
 
             if (toParse.Contains("."))
             {
-                toParse.Replace('.', ',');
+                 toParse.Replace('.', ',');
                 return toParse;
             }
             else return toParse;

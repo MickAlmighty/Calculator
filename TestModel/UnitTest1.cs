@@ -7,27 +7,27 @@ namespace TestModel
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void Addition()
-        {
-            StringManager stringManager = new StringManager();
-            stringManager.AddDigitToOperand("1");
-            stringManager.AddDigitToOperand("5");
-            stringManager.AddDigitToOperand(".");
-            stringManager.AddDigitToOperand("5");
-            stringManager.ChangeSignOfOperand();
-            //stringManager.AddDigitToOperand("5");
-            Assert.AreEqual("-15.5", stringManager.FirstOperand.ToString());
+        //[TestMethod]
+        //public void Addition()
+        //{
+        //    StringManager stringManager = new StringManager();
+        //    stringManager.AddDigitToOperand("1");
+        //    stringManager.AddDigitToOperand("5");
+        //    stringManager.AddDigitToOperand(".");
+        //    stringManager.AddDigitToOperand("5");
+        //    stringManager.ChangeSignOfOperand();
+        //    //stringManager.AddDigitToOperand("5");
+        //    Assert.AreEqual("-15.5", stringManager.FirstOperand.ToString());
 
-            stringManager.ActionOperator = "+";
+        //    stringManager.ActionOperator = "+";
 
-            stringManager.AddDigitToOperand("5");
-            Assert.AreEqual("5", stringManager.SecondOperand.ToString());
+        //    stringManager.AddDigitToOperand("5");
+        //    Assert.AreEqual("5", stringManager.SecondOperand.ToString());
 
-            stringManager.Execute();
-            Assert.AreEqual("-10.5", stringManager.Result);
+        //    stringManager.Execute();
+        //    Assert.AreEqual("-10.5", stringManager.Result);
             
-        }
+        //}
         [TestMethod]
         public void Substraction()
         {

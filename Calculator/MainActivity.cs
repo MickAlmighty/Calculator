@@ -6,12 +6,13 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using CalculatorLogic;
 using System;
+using System.Collections.Generic;
 
 namespace Calculator
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
-    {
+    {     
         TextView disp;
         StringManager obslugaStringow;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -22,6 +23,7 @@ namespace Calculator
 
             obslugaStringow = new StringManager();
             disp = FindViewById<TextView>(Resource.Id.disp);
+            Button btn0 = FindViewById<Button>(Resource.Id.button0);
             Button btn1 = FindViewById<Button>(Resource.Id.button1);
             Button btn2 = FindViewById<Button>(Resource.Id.button2);
             Button btn3 = FindViewById<Button>(Resource.Id.button3);
@@ -35,7 +37,13 @@ namespace Calculator
             Button btnClr = FindViewById<Button>(Resource.Id.buttonClear);
             Button btnAdd = FindViewById<Button>(Resource.Id.buttonAdd);
             Button btnExec = FindViewById<Button>(Resource.Id.buttonEqualSign);
+            Button btnPercentage = FindViewById<Button>(Resource.Id.buttonPercentage);
+            Button btnPlusMinus = FindViewById<Button>(Resource.Id.buttonPlusMinus);
+            Button btnMult = FindViewById<Button>(Resource.Id.buttonMult);
+            Button btnDiv = FindViewById<Button>(Resource.Id.buttonDivision);
+            Button btnSub = FindViewById<Button>(Resource.Id.buttonSub);
 
+            btn0.Click += AddDigitByNumeralBtn;
             btn1.Click += AddDigitByNumeralBtn;
             btn2.Click += AddDigitByNumeralBtn;
             btn3.Click += AddDigitByNumeralBtn;
@@ -48,9 +56,18 @@ namespace Calculator
             btnDot.Click += AddDigitByNumeralBtn;
             btnClr.Click += BtnClr_Click;
             btnAdd.Click += SwitchOperation;
+            btnPercentage.Click += SwitchOperation;
+            btnMult.Click += SwitchOperation;
+            btnDiv.Click += SwitchOperation;
+            btnSub.Click += SwitchOperation;
             btnExec.Click += Execute;
+            btnPlusMinus.Click += ChangeSignOfNumber;
+        }
 
-
+        private void ChangeSignOfNumber(object sender, EventArgs e)
+        {
+            obslugaStringow.ChangeSignOfOperand();
+            disp.Text = obslugaStringow.DisplayOperand();
         }
 
         private void Execute(object sender, EventArgs e)
@@ -62,7 +79,7 @@ namespace Calculator
         private void BtnClr_Click(object sender, System.EventArgs e)
         {
             obslugaStringow = new StringManager();
-            disp.Text = "0";
+            disp.Text = obslugaStringow.DisplayOperand();
         }
 
         private void AddDigitByNumeralBtn(object sender, System.EventArgs e)
