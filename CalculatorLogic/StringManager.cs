@@ -8,6 +8,7 @@ namespace CalculatorLogic
     {
         private StringBuilder firstOperand;
         private StringBuilder secondOperand;
+        private string exponentialNotation;
         private string actionOperator;
         private StringBuilder equalSign;
         private bool isOperandChosen = false;
@@ -90,9 +91,18 @@ namespace CalculatorLogic
                     operandString += digit;
                 }
             }
-
+            MakeExponentialNotation(operandString);
             operand.Clear();
             operand.Append(operandString);
+        }
+        private void MakeExponentialNotation(string operandString)
+        {
+            if(operandString.Length >= 10)
+            {
+                double tmp = double.Parse(operandString);
+                operandString = tmp.ToString("E");
+            }
+            exponentialNotation = operandString;
         }
         public void ChangeSignOfOperand()
         {
@@ -221,11 +231,11 @@ namespace CalculatorLogic
         {
             if (isOperandChosen == false)
             {
-                return FirstOperand.ToString();
+                return exponentialNotation;
             }
             else
             {
-                return SecondOperand.ToString();
+                return exponentialNotation;
             }
         }
     }   

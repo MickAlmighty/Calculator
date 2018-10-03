@@ -27,10 +27,15 @@
 				android:text="0"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
-				android:textSize="80dp"
 				android:gravity="right"
 				android:paddingRight="5dp"
-				android:id="@+id/disp" />
+				android:id="@+id/disp"
+				android:maxHeight="80dp"
+				android:autoSizeMinTextSize="30dp"
+				android:autoSizeMaxTextSize="80dp"
+				android:autoSizeTextType="uniform"
+				android:autoSizeStepGranularity="5dp"
+				android:minHeight="80dp"/>
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
