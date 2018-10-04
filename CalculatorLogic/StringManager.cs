@@ -71,7 +71,8 @@ namespace CalculatorLogic
             {
                 operand = SecondOperand;
             }
-            InsertDigitIfPosible(operand, digit);
+
+            if(operand.Length <= 12) InsertDigitIfPosible(operand, digit);
         }
         private void InsertDigitIfPosible(StringBuilder operand, string digit)
         {
@@ -91,19 +92,10 @@ namespace CalculatorLogic
                     operandString += digit;
                 }
             }
-            MakeExponentialNotation(operandString);
             operand.Clear();
             operand.Append(operandString);
         }
-        private void MakeExponentialNotation(string operandString)
-        {
-            if(operandString.Length >= 10)
-            {
-                double tmp = double.Parse(operandString);
-                operandString = tmp.ToString("E");
-            }
-            exponentialNotation = operandString;
-        }
+
         public void ChangeSignOfOperand()
         {
             StringBuilder operand = new StringBuilder();
@@ -231,11 +223,11 @@ namespace CalculatorLogic
         {
             if (isOperandChosen == false)
             {
-                return exponentialNotation;
+                return FirstOperand.ToString();
             }
             else
             {
-                return exponentialNotation;
+                return SecondOperand.ToString();
             }
         }
     }   

@@ -51,28 +51,36 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:id="@+id/buttonClear"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 			<Button
 				android:text="+-"
 				android:id="@+id/buttonPlusMinus"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 			<Button
 				android:text="%"
 				android:id="@+id/buttonPercentage"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"	
+				/>
 			<Button
 				android:text="/"
 				android:id="@+id/buttonDivision"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
@@ -87,28 +95,36 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:id="@+id/button7"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="8"
 				android:id="@+id/button8"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="9"
 				android:id="@+id/button9"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="x"
 				android:id="@+id/buttonMult"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
@@ -123,28 +139,36 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:id="@+id/button4"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="5"
 				android:id="@+id/button5"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="6"
 				android:id="@+id/button6"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="-"
 				android:id="@+id/buttonSub"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
@@ -159,28 +183,36 @@
 				android:layout_height="match_parent"
 				android:layout_weight="1"
 				android:id="@+id/button1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="2"
 				android:id="@+id/button2"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="3"
 				android:id="@+id/button3"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="+"
 				android:id="@+id/buttonAdd"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
@@ -195,21 +227,27 @@
 				android:layout_height="match_parent"
 				android:layout_weight="2"
 				android:id="@+id/button0"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="."
 				android:id="@+id/buttonDot"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/NumericButtonsColor"
+				/>
 			<Button
 				android:text="="
 				android:id="@+id/buttonEqualSign"
 				android:layout_width="0dp"
 				android:layout_height="match_parent"
 				android:layout_weight="1"
-				android:textSize = "20dp"/>
+				android:textSize = "20dp"
+				android:backgroundTint = "@color/OperationButtonsColor"
+				/>
 		</LinearLayout>
 	</GridLayout>
 </RelativeLayout>
