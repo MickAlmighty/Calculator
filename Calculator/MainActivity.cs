@@ -91,9 +91,9 @@ namespace Calculator
 
         private void SwitchOperation(object sender, System.EventArgs e)
         {
-            disp.Text = "0";
             Button btn = (Button)sender;
             obslugaStringow.ActionOperator = btn.Text;
+            disp.Text = obslugaStringow.DisplayOperand();
         }
     }
 }

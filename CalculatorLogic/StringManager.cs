@@ -14,7 +14,7 @@ namespace CalculatorLogic
         private bool isOperandChosen = false;
         private Operation operacja;
 
-        public string Result { get; set; }
+        public string Result { get; private set; }
         public StringManager()
         {
             firstOperand = new StringBuilder("0");
@@ -201,7 +201,12 @@ namespace CalculatorLogic
                     }
             }
             Result = result.ToString().Replace(',', '.');
-            ClearOperands();
+            ResetOperandsToDefault();
+            ResetIsOperandChosen();
+        }
+        public void ResetIsOperandChosen()
+        {
+            isOperandChosen = false;
         }
         public string PrepareToParse(string toParse)
         {
@@ -213,9 +218,11 @@ namespace CalculatorLogic
             }
             else return toParse;
         }
-        private void ClearOperands()
+        private void ResetOperandsToDefault()
         {
+            FirstOperand.Clear();
             FirstOperand = new StringBuilder("0");
+            SecondOperand.Clear();
             SecondOperand = new StringBuilder("0");
         }
 
