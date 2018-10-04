@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
     <!-->color name="backgroundColor">#336B87</color-->
-    <color name="backgroundColor">#cdcdc0</color>
-    <color name="NumericButtonsColor">#ddbc95</color>
-    <color name="OperationButtonsColor">#b38867</color>
+    <color name="backgroundColor">#c4dfe6</color>
+    <color name="NumericButtonsColor">#ffbebd</color>
+    <color name="OperationButtonsColor">#92aac7</color>
 </resources>
